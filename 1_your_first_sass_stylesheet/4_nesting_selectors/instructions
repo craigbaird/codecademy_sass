@@ -1,0 +1,58 @@
+The first Sass construct we will learn about is nesting.
+
+Nesting is the process of placing selectors inside the scope of another selector:
+
+In programming, a variable's scope is the context in which a variable is defined and available to use.
+In Sass, it's helpful to think of the scope of a selector as any of the code between its opening { and closing } curly brackets.
+Selectors that are nested inside the scope of another selector are referred to as children. The former selector is referred to as the parent. This is just like the relationship observed in HTML elements.
+.parent {
+  color: blue;
+  .child {
+    font-size: 12px;
+  }
+}
+In the example above .child is the child selector and .parent is the parent selector.
+
+The above SCSS would compile to the following, equivalent CSS:
+
+.parent {
+  color: blue;
+}
+
+.parent .child {
+    font-size: 12px;
+}
+Nesting allows you to see the clear DOM relationship between two selectors while also removing the repetition observed in CSS.
+1.
+In main.scss, inside of the .banner class selector, nest the following:
+
+.slogan {
+  position: absolute;
+  border: 4px solid black;
+  top: 200px;
+  left: 25%;
+  width: 50%;
+  height: 200px;
+  text-align: center;
+}
+Click "Run" to see your changes in the browser and inspect the output in main.css.
+
+See how much more clear and efficient nesting is? With Sass, you can avoid repeating the parent over and over again and also avoid definining each selector independently.
+2.
+In main.scss, nest in the following span selector inside of .slogan:
+
+span {
+  font-size: 24px;
+  line-height: 200px;
+}
+Click "Run" to see your changes in the browser and inspect the output in main.css.
+3.
+Practice makes perfect! In main.scss, nest the following selector inside of .container:
+
+.icon {
+  display: inline-block;
+  margin: 2%;
+  border: 4px solid black;
+  font-size: 32px;
+}
+Click "Run" to see your changes in the browser and inspect output in main.css.

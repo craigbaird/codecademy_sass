@@ -1,0 +1,12 @@
+Let's get started! Sass has many perks that enable us to write succinct, readable code. In this lesson we will explore three concepts:
+
+Variables
+Mixins
+Nests
+In the process, you'll use Sass to style your very own website for a lemonade stand.
+Instructions
+Take a look at the Sass code in main.scss and compare it to the CSS equivalent in main.css. What differences do you notice?
+
+Hint: Both versions produce the same effects!
+
+We will be editing these files to style the website appropriately.
