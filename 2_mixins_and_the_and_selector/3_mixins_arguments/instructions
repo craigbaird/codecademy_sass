@@ -1,0 +1,33 @@
+Mixins also have the ability to take in a value.
+
+An argument, or parameter, is a value passed to the mixin that will be used inside the mixin, such as $visibility in this example:
+
+@mixin backface-visibility($visibility) {
+  backface-visibility: $visibility;
+  -webkit-backface-visibility: $visibility;
+  -moz-backface-visibility: $visibility;
+  -ms-backface-visibility: $visibility;
+  -o-backface-visibility: $visibility;
+}
+In fact, you should only ever use a mixin if it takes an argument. We will learn more about this in a later exercise.
+
+The syntax to pass in a value is as follows:
+
+@include backface-visibility(hidden);
+In the code above, hidden is passed in to the backface-visibility mixin, where it will be assigned as the value of its argument, $visibility.
+1.
+In main.scss, modify backface-visibility mixin to take in a parameter, like so:
+
+@mixin backface-visibility($visibility) { //Add an argument
+  backface-visibility: $visibility;
+  -webkit-backface-visibility: $visibility;
+  -moz-backface-visibility: $visibility;
+  -ms-backface-visibility: $visibility;
+  -o-backface-visibility: $visibility;
+}
+Pass in the value of hidden inside the .front, .back selector:
+
+.front, .back {
+    @include backface-visibility(hidden);
+}
+Click "Run" to see your changes in the browser and inspect them in main.css.
