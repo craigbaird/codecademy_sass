@@ -1,0 +1,61 @@
+In general, here are 5 important facts about arguments and mixins:
+
+Mixins can take multiple arguments.
+Sass allows you to explicitly define each argument in your @include statement.
+When values are explicitly specified you can send them out of order.
+If a mixin definition has a combination of arguments with and without a default value, you should define the ones with no default value first.
+Mixins can be nested.
+Here are some concrete examples of the rules:
+
+@mixin dashed-border($width, $color: #FFF) {
+  border: {
+     color: $color;
+     width: $width;
+     style: dashed;
+  }
+}
+
+span { //only passes non-default argument
+    @include dashed-border(3px);
+}
+
+p { //passes both arguments
+    @include dashed-border(3px, green);
+}
+
+div { //passes out of order but explicitly defined
+   @include dashed-border(color: purple, width: 5px); 
+}
+In the example above, the color of the border of span elements would be white, the border of paragraph elements would be green, while the div elements would have a thicker purple border.
+1.
+Practice makes perfect! In main.scss inside of the .back selector, include the following:
+
+@include transform(rotatey(-180deg));
+Click "Run" to see your changes in the browser and inspect them in the output of main.css.
+2.
+In addition to flipping the back, we also want to make sure that the notecard preserves a 3D effect during all of its transformations. At the top of main.scss, add the following mixin:
+
+@mixin transform-style($style){
+   transform-style: $style;
+  -moz-transform-style: $style;
+  -o-transform-style: $style;
+  -ms-transform-style: $style;
+  -webkit-transform-style: $style;
+}
+Invoke the mixin inside of .notecard, add the following:
+
+@include transform-style(preserve-3d);
+Click "Run" to see your changes in the browser and inspect them in the output of main.css.
+3.
+Last but not least, add the following at the top of main.scss:
+
+@mixin transition($time){
+  transition: $time;
+  -webkit-transition: $time;
+  -moz-transition: $time;
+  -o-transition: $time;
+}
+Add the following inside the .notecard selector:
+
+@include transition(0.4s);
+Click "Run" to see your changes in the browser and inspect them in the output of main.css.

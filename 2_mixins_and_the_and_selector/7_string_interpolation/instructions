@@ -1,0 +1,38 @@
+In Sass, string interpolation is the process of placing a variable string in the middle of two other strings.
+
+In a mixin context, interpolation is handy when you want to make use of variables in selectors or file names. The notation is as follows:
+
+@mixin photo-content($file) {
+  content: url(#{$file}.jpg); //string interpolation
+  object-fit: cover;
+}
+
+//....
+
+.photo { 
+  @include photo-content('titanosaur');
+  width: 60%;
+  margin: 0px auto; 
+  }
+String interpolation would enable the following CSS:
+
+.photo { 
+  content: url(titanosaur.jpg);
+  width: 60%;
+  margin: 0px auto; 
+}
+1.
+In main.scss, edit the photo-content mixin as follows:
+
+@mixin photo-content($file) {
+  content: url(#{$file}.jpg); 
+  object-fit: cover;
+}
+Include the mixin inside the .photo selector and pass in a file name of 'titanosaur':
+
+.photo {
+        @include photo-content('titanosaur');
+        width: 60%;
+        margin: 0px auto;  
+ }
+Click "Run" to see your changes in the browser and inspect them in the output of main.css.
